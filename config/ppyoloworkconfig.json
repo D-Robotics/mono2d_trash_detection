@@ -1,0 +1,13 @@
+{
+	"model_file": "config/ppyolo_trashdet_416x416_nv12.bin",
+	"model_name": "ppyolo_trashdet_416x416_nv12",
+	"dnn_Parser": "yolov3",
+	"model_output_count": 2,
+	"class_num": 1,
+	"cls_names_list": "config/trash_coco.list",
+	"strides": [32, 16],
+	"anchors_table": [[[2.53125, 2.5625], [4.21875, 5.28125], [10.75, 9.96875]], [[0.625, 0.875], [1.4375, 1.6875], [2.3125, 3.625]]],
+	"score_threshold": 0.3,
+	"nms_threshold": 0.45,
+	"nms_top_k": 500
+}
