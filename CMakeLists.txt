@@ -21,15 +21,6 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
-include_directories(include
-  ${PROJECT_SOURCE_DIR}
-)
-
-message("CMAKE_SYSROOT is " ${CMAKE_SYSROOT})
-include_directories(
-  ${CMAKE_SYSROOT}/usr/include/
-)
-
 # Install executables
 install(DIRECTORY
   ${PROJECT_SOURCE_DIR}/config/
