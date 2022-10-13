@@ -25,21 +25,12 @@ include_directories(include
   ${PROJECT_SOURCE_DIR}
 )
 
-add_executable(${PROJECT_NAME}
-  src/main.cpp
-)
-
 message("CMAKE_SYSROOT is " ${CMAKE_SYSROOT})
 include_directories(
   ${CMAKE_SYSROOT}/usr/include/
 )
 
 # Install executables
-install(
-  TARGETS ${PROJECT_NAME}
-  RUNTIME DESTINATION lib/${PROJECT_NAME}
-)
-
 install(DIRECTORY
   ${PROJECT_SOURCE_DIR}/config/
   DESTINATION lib/${PROJECT_NAME}/config/
