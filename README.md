@@ -33,14 +33,14 @@ int rect.height
 
 - 编程语言: C/C++
 - 开发平台: X3/X86
-- 系统版本：Ubuntu 20.0.4
+- 系统版本：Ubuntu 20.04
 - 编译工具链:Linux GCC 9.3.0/Linaro GCC 9.3.0
 
 ## 编译
 
  支持在X3 Ubuntu系统上编译和在PC上使用docker交叉编译两种方式。
 
-### Ubuntu板端编译
+### Ubuntu板端编译X3
 
 1. 编译环境确认 
    - 板端已安装X3 Ubuntu系统。
@@ -50,7 +50,7 @@ int rect.height
 
  编译命令：`colcon build --packages-select mono2d_trash_detection`
 
-### Docker交叉编译
+### Docker交叉编译X3
 
 1. 编译环境确认
 
@@ -60,18 +60,35 @@ int rect.height
 
    - 编译命令：
 
-```
-export TARGET_ARCH=aarch64
-export TARGET_TRIPLE=aarch64-linux-gnu
-export CROSS_COMPILE=/usr/bin/$TARGET_TRIPLE-
+   ```
+   export TARGET_ARCH=aarch64
+   export TARGET_TRIPLE=aarch64-linux-gnu
+   export CROSS_COMPILE=/usr/bin/$TARGET_TRIPLE-
 
-colcon build --packages-select mono2d_trash_detection \
-   --merge-install \
-   --cmake-force-configure \
-   --cmake-args \
-   --no-warn-unused-cli \
-   -DCMAKE_TOOLCHAIN_FILE=`pwd`/robot_dev_config/aarch64_toolchainfile.cmake
-```
+   colcon build --packages-select mono2d_trash_detection \
+      --merge-install \
+      --cmake-force-configure \
+      --cmake-args \
+      --no-warn-unused-cli \
+      -DCMAKE_TOOLCHAIN_FILE=`pwd`/robot_dev_config/aarch64_toolchainfile.cmake
+   ```
+
+### X86 Ubuntu系统上编译X86版本
+
+1. 编译环境确认
+
+   - x86 ubuntu版本: ubuntu20.04
+
+2. 编译
+
+   - 编译命令：
+
+   ```
+   colcon build --packages-select mono2d_trash_detection  \
+      --merge-install \
+      --cmake-args \
+      -DTHIRD_PARTY=`pwd`/../sysroot_docker \
+   ```
 
 ## 注意事项
 
@@ -123,7 +140,7 @@ colcon build --packages-select mono2d_trash_detection \
 
 编译成功后，将生成的install路径拷贝到地平线旭日X3开发板上（如果是在X3上编译，忽略拷贝步骤），并执行如下命令运行：
 
-### **Ubuntu**
+### **X3 Ubuntu**
 
 ```
 export COLCON_CURRENT_PREFIX=./install
@@ -136,7 +153,7 @@ cp -r install/lib/mono2d_trash_detection/config/ .
 ros2 run dnn_node_example example --ros-args -p feed_type:=0 -p image:=config/trashDet0028.jpg -p image_type:=0 -p dump_render_img:=1 -p config_file:=config/ppyoloworkconfig.json
 ```
 
-### **Ubuntu Launch启动**
+### **X3 Ubuntu Launch启动**
 
 ```
 export COLCON_CURRENT_PREFIX=./install
@@ -159,7 +176,7 @@ ros2 launch dnn_node_example hobot_dnn_node_example.launch.py config_file:=confi
 ros2 launch dnn_node_example hobot_dnn_node_example_feedback.launch.py config_file:=config/ppyoloworkconfig.json image:=config/trashDet0028.jpg
 ```
 
-### **Linux**
+### **X3 Linux**
 如果需要在PC端浏览器上渲染显示sensor发布的图片和对应的AI结果，确认旭日X3派已经启动用于web展示的webserver服务（设备启动后只需要启动一次服务，只有设备重启的情况下需要重新启动服务）。旭日X3派执行ps -aux命令查看是否有nginx进程，如果有表示已经启动此服务，如果无，启动服务，运行方法为：
 ```
 cd /opt/tros/lib/websocket/webservice/
@@ -185,6 +202,23 @@ cp -r ./install/lib/mono2d_trash_detection/config/ .
 
 # 启动dnn_node_example node
 ./install/lib/dnn_node_example/example  --ros-args -p feed_type:=1 -p is_shared_mem_sub:=1 -p dump_render_img:=0 -p msg_pub_topic_name:=/ai_msg_mono2d_trash_detection --log-level warn &
+```
+
+### **X86 Ubuntu**
+
+```
+export COLCON_CURRENT_PREFIX=./install
+source ./install/setup.bash
+
+# config中为示例使用的模型，根据实际安装路径进行拷贝
+cp -r ./install/lib/mono2d_trash_detection/config/ .
+
+#设置运行环境变量
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:`pwd`/../sysroot_docker/usr/lib
+
+# 启动dnn_node_example node
+ros2 run dnn_node_example example --ros-args -p feed_type:=0 -p image:=config/trashDet0028.jpg -p image_type:=0 -p dump_render_img:=1 -p config_file:=config/ppyoloworkconfig.json
+
 ```
 
 # 结果分析
