@@ -165,15 +165,15 @@ cp -r install/lib/mono2d_trash_detection/config/ .
 # 启动dnn_node_example package
 # mipi摄像头输入检测，渲染结果在Web页面可视化
 export CAM_TYPE=mipi
-ros2 launch dnn_node_example hobot_dnn_node_example.launch.py config_file:=config/ppyoloworkconfig.json msg_pub_topic_name:=ai_msg_mono2d_trash_detection image_width:=1920 image_height:=1080
+ros2 launch dnn_node_example dnn_node_example.launch.py config_file:=config/ppyoloworkconfig.json msg_pub_topic_name:=ai_msg_mono2d_trash_detection image_width:=1920 image_height:=1080
 
 # 启动dnn_node_example package
 # usb摄像头输入检测，渲染结果在Web页面可视化
 export CAM_TYPE=usb
-ros2 launch dnn_node_example hobot_dnn_node_example.launch.py config_file:=config/ppyoloworkconfig.json msg_pub_topic_name:=ai_msg_mono2d_trash_detection image_width:=1920 image_height:=1080
+ros2 launch dnn_node_example dnn_node_example.launch.py config_file:=config/ppyoloworkconfig.json msg_pub_topic_name:=ai_msg_mono2d_trash_detection image_width:=1920 image_height:=1080
 
 # 单张图片回灌，渲染结果在Web页面可视化并保存到本地
-ros2 launch dnn_node_example hobot_dnn_node_example_feedback.launch.py config_file:=config/ppyoloworkconfig.json image:=config/trashDet0028.jpg
+ros2 launch dnn_node_example dnn_node_example_feedback.launch.py config_file:=config/ppyoloworkconfig.json image:=config/trashDet0028.jpg
 ```
 
 ### **X3 Linux**
