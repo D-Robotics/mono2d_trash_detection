@@ -12,7 +12,6 @@ mono2d_trash_detection package 是基于 hobot_dnn package 开发的2D垃圾目�
 完整的AI Msg描述如下所示：
 
 ````
-
 # 检测消息
 Roi[] rois
 数据结构：
@@ -24,7 +23,6 @@ int rect.height
 
 # 检测类型名称，如：垃圾
 # trash
-
 ````
 
 # 编译
@@ -120,9 +118,10 @@ int rect.height
 ## 配置文件
 
 - config_file配置文件格式为json格式，本示例ppyoloworkconfig.json，具体配置如下：
+
+```json
   {
     "model_file"：模型文件的路径
-    "model_name"：模型名称
     "dnn_Parser"：设置选择内置的后处理算法，示例采用的解析方法同yolov3，采用"yolov3"
     "model_output_count"：模型输出branch个数
 	"class_num": 检测类别数
@@ -133,6 +132,7 @@ int rect.height
 	"nms_threshold": NMS后处理IOU阈值
 	"nms_top_k": NMS后处理选取的框个数
   }
+```
 
 说明：实际每个预设anchors大小为 anchors_table x strides
 
@@ -142,7 +142,7 @@ int rect.height
 
 ### **X3 Ubuntu**
 
-```
+```shell
 export COLCON_CURRENT_PREFIX=./install
 source ./install/setup.bash
 # config中为示例使用的模型，根据实际安装路径进行拷贝

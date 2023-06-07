@@ -1,6 +1,5 @@
 {
 	"model_file": "config/ppyolo_trashdet_416x416_nv12.bin",
-	"model_name": "ppyolo_trashdet_416x416_nv12",
 	"dnn_Parser": "yolov3",
 	"model_output_count": 2,
 	"class_num": 1,
