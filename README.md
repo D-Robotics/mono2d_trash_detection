@@ -98,7 +98,7 @@ int rect.height
 | is_shared_mem_sub  | Subscribe to image using shared mem communication | No         | 0                   |                                                                       |
 | config_file        | Configuration file path                | No                   | ""                  | Change configuration file to call different models with different post-processing algorithms. By default, it enables the fastercnn model post-processing. |
 | dump_render_img    | Render image or not, 0: no; 1: yes      | No                   | 0                   |                                                                       |
-``` | msg_pub_topic_name | Topic name for publishing intelligent results, used for web display | No                   | hobot_dnn_detection |
+| msg_pub_topic_name | Topic name for publishing intelligent results, used for web display | No                   | hobot_dnn_detection |
 
 ## Configuration File
 
