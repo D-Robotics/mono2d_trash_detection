@@ -18,6 +18,7 @@
 
 ## MIPI相机动态识别
 
+tros foxy 版本
 ```bash
 # 配置ROS2环境
 source /opt/tros/setup.bash
@@ -32,12 +33,24 @@ export CAM_TYPE=mipi
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/ppyoloworkconfig.json dnn_example_msg_pub_topic_name:=ai_msg_mono2d_trash_detection dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ```
 
+tros humble 版本
+```bash
+# 配置ROS2环境
+source /opt/tros/humble/setup.bash
 
+# 从tros的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_trash_detection/config/ .
+
+# 配置MIPI摄像头
+export CAM_TYPE=mipi
+
+# 启动launch文件
+ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/ppyoloworkconfig.json dnn_example_msg_pub_topic_name:=ai_msg_mono2d_trash_detection dnn_example_image_width:=1920 dnn_example_image_height:=1080
+```
 
 ## USB相机动态识别
 
-
-
+tros foxy 版本
 ```bash
 # 配置ROS2环境
 source /opt/tros/setup.bash
@@ -52,7 +65,20 @@ export CAM_TYPE=usb
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/ppyoloworkconfig.json dnn_example_msg_pub_topic_name:=ai_msg_mono2d_trash_detection dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ```
 
+tros humble 版本
+```bash
+# 配置ROS2 humble环境
+source /opt/tros/humble/setup.bash
 
+# 从tros的安装路径中拷贝出运行示例需要的配置文件。
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_trash_detection/config/ .
+
+# 配置USB摄像头
+export CAM_TYPE=usb
+
+# 启动launch文件
+ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/ppyoloworkconfig.json dnn_example_msg_pub_topic_name:=ai_msg_mono2d_trash_detection dnn_example_image_width:=1920 dnn_example_image_height:=1080
+```
 
 ## 可视化显示
 

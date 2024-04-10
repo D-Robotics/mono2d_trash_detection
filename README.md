@@ -18,6 +18,7 @@ This Node is a 2D garbage object detection algorithm developed based on hobot_dn
 
 ## Dynamic Recognition with MIPI Camera
 
+tros foxy:
 ```bash
 # Set up ROS2 environment
 source /opt/tros/setup.bash
@@ -32,10 +33,24 @@ export CAM_TYPE=mipi
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/ppyoloworkconfig.json dnn_example_msg_pub_topic_name:=ai_msg_mono2d_trash_detection dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ```
 
+tros humble:
+```bash
+# Set up ROS2 environment
+source /opt/tros/humble/setup.bash
 
+# Copy the configuration files needed for the running example from the tros installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_trash_detection/config/ .
+
+# Configure MIPI camera
+export CAM_TYPE=mipi
+
+# Launch the launch file
+ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/ppyoloworkconfig.json dnn_example_msg_pub_topic_name:=ai_msg_mono2d_trash_detection dnn_example_image_width:=1920 dnn_example_image_height:=1080
+```
 
 ## Dynamic Recognition with USB Camera
 
+tros foxy:
 ```bash
 # Set up ROS2 environment
 source /opt/tros/setup.bash
@@ -50,7 +65,20 @@ export CAM_TYPE=usb
 ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/ppyoloworkconfig.json dnn_example_msg_pub_topic_name:=ai_msg_mono2d_trash_detection dnn_example_image_width:=1920 dnn_example_image_height:=1080
 ``````
 
+tros humble:
+```bash
+# Set up ROS2 humble environment
+source /opt/tros/humble/setup.bash
 
+# Copy the configuration files needed for the running example from the tros installation path.
+cp -r /opt/tros/${TROS_DISTRO}/lib/mono2d_trash_detection/config/ .
+
+# Configure USB camera
+export CAM_TYPE=usb
+
+# Launch the launch file
+ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:=config/ppyoloworkconfig.json dnn_example_msg_pub_topic_name:=ai_msg_mono2d_trash_detection dnn_example_image_width:=1920 dnn_example_image_height:=1080
+``````
 
 ## Visualization
 
