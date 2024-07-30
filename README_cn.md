@@ -10,7 +10,7 @@
 | 物料选项    | 清单      |
 | ------- | ------------ |
 | RDK X3  | [购买链接](https://developer.horizon.ai/sunrise) |
-| 摄像头 | [MIPI相机](https://github.com/HorizonRDK/hobot_mipi_cam)、[USB相机](https://github.com/HorizonRDK/hobot_usb_cam) |
+| 摄像头 | [MIPI相机](https://github.com/D-Robotics/hobot_mipi_cam)、[USB相机](https://github.com/D-Robotics/hobot_usb_cam) |
 
 
 
@@ -82,7 +82,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 ## 可视化显示
 
-PC打开浏览器（chrome/firefox/edge）输入[http://IP:8000](http://ip:8000/)（IP为地平线RDK IP地址），点击左上方Web端展示即可看到摄像头输出的实时画面：
+PC打开浏览器（chrome/firefox/edge）输入[http://IP:8000](http://ip:8000/)（IP为RDK IP地址），点击左上方Web端展示即可看到摄像头输出的实时画面：
 
 ![realtime](image/realtime.gif)
 
@@ -153,5 +153,5 @@ int rect.height
 
 # 参考资料
 
-- 模型训练：[PPYOLO垃圾检测+地平线地平线RDK部署（上）](https://aistudio.baidu.com/aistudio/projectdetail/4606468?contributionType=1)
-- 模型转换：[PPYOLO垃圾检测+地平线地平线RDK部署（下）](https://aistudio.baidu.com/aistudio/projectdetail/4754526?contributionType=1)
+- 模型训练：[PPYOLO垃圾检测+RDK部署（上）](https://aistudio.baidu.com/aistudio/projectdetail/4606468?contributionType=1)
+- 模型转换：[PPYOLO垃圾检测+RDK部署（下）](https://aistudio.baidu.com/aistudio/projectdetail/4754526?contributionType=1)

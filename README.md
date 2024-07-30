@@ -10,7 +10,7 @@ This Node is a 2D garbage object detection algorithm developed based on hobot_dn
 | Material Option    | List      |
 | ------- | ------------ |
 | RDK X3  | [Purchase Link](https://developer.horizon.ai/sunrise) |
-| Camera | [MIPI Camera](https://github.com/HorizonRDK/hobot_mipi_cam)、[USB Camera](https://github.com/HorizonRDK/hobot_usb_cam) |
+| Camera | [MIPI Camera](https://github.com/D-Robotics/hobot_mipi_cam)、[USB Camera](https://github.com/D-Robotics/hobot_usb_cam) |
 
 
 
@@ -82,7 +82,7 @@ ros2 launch dnn_node_example dnn_node_example.launch.py dnn_example_config_file:
 
 ## Visualization
 
-On PC, open a browser (chrome/firefox/edge) and enter [http://IP:8000](http://ip:8000/) (where IP is the Horizon RDK IP address). Click on the Web display on the top left to see the real-time camera output:
+On PC, open a browser (chrome/firefox/edge) and enter [http://IP:8000](http://ip:8000/) (where IP is the RDK IP address). Click on the Web display on the top left to see the real-time camera output:
 
 ![realtime](image/realtime.gif)
 
@@ -151,5 +151,5 @@ Note: The actual size of each preset anchor is anchors_table x strides
 
 # References
 
-- Model Training: [PPYOLO Garbage Detection + Horizon RDK Deployment (Part 1)](https://aistudio.baidu.com/aistudio/projectdetail/4606468?contributionType=1)
-- Model Conversion: [PPYOLO Garbage Detection + Horizon RDK Deployment (Part 2)](https://aistudio.baidu.com/aistudio/projectdetail/4754526?contributionType=1)
+- Model Training: [PPYOLO Garbage Detection + RDK Deployment (Part 1)](https://aistudio.baidu.com/aistudio/projectdetail/4606468?contributionType=1)
+- Model Conversion: [PPYOLO Garbage Detection + RDK Deployment (Part 2)](https://aistudio.baidu.com/aistudio/projectdetail/4754526?contributionType=1)
