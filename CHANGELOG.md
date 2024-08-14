@@ -1,5 +1,9 @@
 # Changelog for package mono3d_indoor_detection
 
+tros_2.4.0 (2024-08-14)
+------------------
+1. 新增X5模型适配。
+
 tros_2.1.0 (2023-06-20)
 ------------------
 1. 删除针对于多模型的model_name配置项，从模型文件中自动获取model_name。
