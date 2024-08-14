@@ -21,9 +21,36 @@ find_package(ament_cmake REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
+if(PLATFORM_X3)
+  message("build platform X3")
+  set(PREFIX_PATH x3)
+elseif(PLATFORM_X5)
+  message("build ${PROJECT_NAME} for platform X5")
+  set(PREFIX_PATH x5)
+elseif(PLATFORM_X86)
+  message("build platform X86")
+  set(PREFIX_PATH x3)
+else()
+  message("invalid platform, build platform X3 default")
+  set(PREFIX_PATH x3)
+endif()
+
 # Install executables
 install(DIRECTORY
-  ${PROJECT_SOURCE_DIR}/config/
+  ${PROJECT_SOURCE_DIR}/config/${PREFIX_PATH}/
+  DESTINATION lib/${PROJECT_NAME}/config/
+)
+
+install(FILES
+  ${PROJECT_SOURCE_DIR}/config/ppyoloworkconfig.json
+  DESTINATION lib/${PROJECT_NAME}/config/
+)
+install(FILES
+  ${PROJECT_SOURCE_DIR}/config/trash_coco.list
+  DESTINATION lib/${PROJECT_NAME}/config/
+)
+install(FILES
+  ${PROJECT_SOURCE_DIR}/config/trashDet0028.jpg
   DESTINATION lib/${PROJECT_NAME}/config/
 )
 
