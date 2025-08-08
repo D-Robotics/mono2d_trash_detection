@@ -1,5 +1,9 @@
 # Changelog for package mono3d_indoor_detection
 
+tros_2.4.1 (2025-08-08)
+------------------
+1. 更新X3模型。
+
 tros_2.4.0 (2024-08-14)
 ------------------
 1. 新增X5模型适配。
